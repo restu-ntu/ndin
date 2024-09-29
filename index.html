@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadine Abigail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .birthday-card h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff6f61;
+            font-size: 65px;
+            margin: 0;
+        }
+
+        .birthday-card p {
+            font-size: 22px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .birthday-card button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .birthday-card button:hover {
+            background-color: #ff4757;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Galeri Foto */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1000px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animasi Balon */
+        .balloon {
+            width: 60px;
+            height: 80px;
+            background-color: #ffcccb;
+            border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+            position: absolute;
+            bottom: -150px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #87ceeb;
+            left: 15%;
+            animation-duration: 5s;
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #ffd700;
+            left: 35%;
+            animation-duration: 4s;
+        }
+
+        .balloon:nth-child(4) {
+            background-color: #90ee90;
+            left: 55%;
+            animation-duration: 6.5s;
+        }
+
+        .balloon:nth-child(5) {
+            background-color: #ffb6c1;
+            left: 75%;
+            animation-duration: 5.5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-300px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Gaya untuk gambar kejutan */
+        #surprise-image {
+            display: none;
+            margin-top: 30px;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Media Queries untuk Responsif */
+        @media only screen and (max-width: 768px) {
+            .birthday-card h1 {
+                font-size: 50px;
+            }
+
+            .birthday-card p {
+                font-size: 18px;
+            }
+
+            .birthday-card button {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr; /* Mengubah tata letak galeri menjadi satu kolom */
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .birthday-card h1 {
+                font-size: 40px;
+            }
+
+            .birthday-card p {
+                font-size: 16px;
+            }
+
+            .birthday-card button {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr; /* Satu kolom untuk layar yang lebih kecil */
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="birthday-card">
+        <h1>Selamat Ulang Tahun Nadine Abigail</h1>
+        <p>Semoga hari ini membawa kebahagiaan dan cinta tanpa batas!</p>
+        <p>🎂🎂🎂</p>
+        <a href="#surprise-image"><button id="surprise-btn">Kejutan Spesial</button></a>
+    </div>
+
+    <!-- Galeri Foto -->
+    <div class="gallery">
+        <img src="img/1.jpg" alt="Foto 1">
+        <img src="img/2.heic" alt="Foto 2">
+        <img src="img/3.heic" alt="Foto 3">
+        <img src="img/4.jpg" alt="Foto 4">
+        <img src="img/5.jpg" alt="Foto 5">
+        <img src="img/6.jpg" alt="Foto 6">
+        <img src="img/7.jpg" alt="Foto 7">
+        <img src="img/8.jpg" alt="Foto 8">
+    </div>
+
+    <!-- Gambar kejutan -->
+    <img id="surprise-image" src="img/kejutan.jpg" alt="Kejutan Spesial">
+
+    <!-- Balon-balon dekoratif -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <script>
+        // Mengambil elemen tombol dan gambar kejutan
+        const surpriseBtn = document.getElementById('surprise-btn');
+        const surpriseImage = document.getElementById('surprise-image');
+
+        // Menambahkan event listener pada tombol
+        surpriseBtn.addEventListener('click', function() {
+            // Jika gambar belum tampil, maka tampilkan
+            if (surpriseImage.style.display === 'none' || surpriseImage.style.display === '') {
+                surpriseImage.style.display = 'block';
+                surpriseBtn.textContent = 'Sembunyikan Kejutan'; // Mengubah teks tombol
+            } else {
+                surpriseImage.style.display = 'none'; // Menyembunyikan gambar jika sudah tampil
+                surpriseBtn.textContent = 'Kejutan Spesial'; // Kembali ke teks asli
+            }
+        });
+    </script>
+</body>
+</html>
